@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climber's 4-Week Core Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .week {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        select {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Climber's 4-Week Core Program</h1>
+    
+    <select id="weekSelector" onchange="showWeek()">
+        <option value="1">Week 1</option>
+        <option value="2">Week 2</option>
+        <option value="3">Week 3</option>
+        <option value="4">Week 4</option>
+    </select>
+
+    <div id="weekContent" class="week"></div>
+
+    <script>
+        const program = {
+            1: [
+                "Toe to Bar: 3 sets of 5 reps",
+                "Pike TRX: 3 sets of 10 reps",
+                "Mountain Climber TRX: 3 sets of 20 seconds",
+                "Ab Curls: 3 sets of 15 reps"
+            ],
+            2: [
+                "Toe to Bar: 3 sets of 8 reps",
+                "Pike TRX: 3 sets of 12 reps",
+                "Mountain Climber TRX: 3 sets of 30 seconds",
+                "Ab Curls: 3 sets of 20 reps"
+            ],
+            3: [
+                "Toe to Bar: 4 sets of 10 reps",
+                "Pike TRX: 4 sets of 15 reps",
+                "Mountain Climber TRX: 4 sets of 40 seconds",
+                "Ab Curls: 4 sets of 25 reps"
+            ],
+            4: [
+                "Toe to Bar: 4 sets of 12 reps",
+                "Pike TRX: 4 sets of 18 reps",
+                "Mountain Climber TRX: 4 sets of 50 seconds",
+                "Ab Curls: 4 sets of 30 reps"
+            ]
+        };
+
+        function showWeek() {
+            const weekNumber = document.getElementById('weekSelector').value;
+            const weekContent = document.getElementById('weekContent');
+            weekContent.innerHTML = `<h2>Week ${weekNumber}</h2><ul>`;
+            program[weekNumber].forEach(exercise => {
+                weekContent.innerHTML += `<li>${exercise}</li>`;
+            });
+            weekContent.innerHTML += '</ul>';
+        }
+
+        showWeek(); // Show Week 1 by default
+    </script>
+</body>
+</html>
